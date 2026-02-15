@@ -1,0 +1,58 @@
+{
+  "manifest_version": 3,
+  "name": "Yad2 Car Ad Data",
+  "version": "1.0",
+  "description": "Extracts additional vehicle information for Yad2 Car listings",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "*://*.yad2.co.il/*",
+    "*://*.gov.il/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "/images/icon16.png",
+      "48": "/images/icon48.png",
+      "128": "/images/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.yad2.co.il/*"],
+      "js": ["translations.js", "tesseract5.min.js", "content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "tesseract5.min.js",
+        "tesseract5.worker.min.js",
+        "tesseract-core.wasm.js",
+        "tesseract-core.wasm",
+        "tesseract-core-simd-lstm.wasm.js",
+        "tesseract-core-simd-lstm.wasm",
+        "tessdata/eng.traineddata.gz",
+        "tessdata/heb.traineddata.gz",
+        "tesseract-export.js",
+        "tesseract-init.js"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  }
+}
+
+
+
+
+
+

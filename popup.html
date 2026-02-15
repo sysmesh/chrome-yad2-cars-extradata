@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yad2 Extra Info</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+      direction: rtl;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      direction: rtl;
+    }
+    button {
+      padding: 8px 12px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+    button.secondary {
+      background-color: #f44336;
+    }
+    .status {
+      margin-top: 10px;
+      padding: 8px;
+      border-radius: 4px;
+      text-align: right;
+      direction: rtl;
+    }
+    .status.valid {
+      background-color: #e8f5e9;
+      color: #2e7d32;
+    }
+    .status.invalid {
+      background-color: #ffebee;
+      color: #c62828;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      direction: rtl;
+    }
+    .header h2 {
+      margin: 0;
+      font-size: 16px;
+    }
+    #dataPreview {
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #f5f5f5;
+      border-radius: 4px;
+      display: none;
+      max-height: 300px;
+      overflow-y: auto;
+      direction: rtl;
+      text-align: right;
+    }
+    #dataPreview p {
+      margin: 5px 0;
+      font-size: 12px;
+    }
+    #dataPreview h4 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+    #error {
+      margin-top: 10px;
+      padding: 8px;
+      background-color: #ffebee;
+      border-radius: 4px;
+      color: #c62828;
+      text-align: right;
+      direction: rtl;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2 id="title"></h2>
+    </div>
+    
+    <div id="status" class="status"></div>
+    
+    <button id="exportBtn"></button>
+  </div>
+  
+  <div id="error"></div>
+  <div id="dataPreview"></div>
+  
+  <script src="translations.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
